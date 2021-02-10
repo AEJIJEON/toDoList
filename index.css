@@ -1,16 +1,35 @@
 body{
-  background-color: #ecc865;
+  background-color:#FFE4C4;
   text-align: center;
   padding-top: 70px;
 }
 
+@font-face{
+  font-family: Shakerato-PERSONAL-Bold;
+  src: url("./fonts/Shakerato-PERSONAL-Bold.otf");
+}
+@font-face{
+  font-family: Routerlinefreeversion-4Benx;
+  src: url("./fonts/Routerlinefreeversion-4Benx.ttf");
+}
+
+@font-face {
+  font-family: 'Jal_Onuel';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/Jal_Onuel.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 h1{
   color: black;
   transition: color 1s ease-in-out;
+  font-family: Shakerato-PERSONAL-Bold;
+  
 }
 
-h5{
+h4{
   font-size: 20px;
+  font-family: Routerlinefreeversion-4Benx;
+  color: tomato;
 }
 
 .btn{
@@ -23,10 +42,15 @@ h5{
   padding-top: 10px;
 } */
 
+.right-padding{
+  padding-right: 30px;
+}
+
 
 
 .js-weather{
   font-size: 30px;
+  font-weight: bold;
   display: inline;
 }
 .js-toDoList{
@@ -34,7 +58,7 @@ h5{
   width: 300px;
   margin-left: auto;
   margin-right: auto;
-  
+  font-family: Jal_Onuel;
 }
 
 
@@ -83,12 +107,12 @@ h5{
   height: 100%;
   z-index: -2;
   animation: fadeIn 1.5s linear;
-  /* opacity: 50%; */
+  opacity: 75%;
 }
 
 .weatherImage{
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   z-index: -1;
   animation: fadeIn 0.5s linear;
   padding-left: 15px;
@@ -103,8 +127,168 @@ h5{
 
 .emojiLink{
   position: fixed;
- 
+  
 
-  bottom: 0;
-  width: 100%;
+  bottom: 10px;
+  
+}
+
+.emojiLink a{
+  color: black;
+}
+
+ label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+label:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+label input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+label .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+} 
+
+.myButton1 {
+	box-shadow: 0px 1px 0px 0px #1c1b18;
+	background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+	background-color:#eae0c2;
+	border-radius:15px;
+	border:2px solid #333029;
+	display:inline-block;
+	cursor:pointer;
+	color:#505739;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:6px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton1:hover {
+	background:linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+	background-color:#ccc2a6;
+}
+
+.myButton1:active {
+	position:relative;
+	top:1px;
+}
+
+.myButton2 {
+	box-shadow:inset 0px 1px 3px 0px #1c1b18;
+	background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+	background-color:#eae0c2;
+	border-radius:5px;
+	border:1px solid #333029;
+	display:inline-block;
+	cursor:pointer;
+	color:#505739;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:5px 17px;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #ffffff;
+	/* text-shadow:0px -1px 0px #2b665e; */
+}
+.myButton2:hover {  
+	background:linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+	background-color:#ccc2a6;
+	/* background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	background-color:#6c7c7c; */
+}
+.myButton2:active {
+	position:relative;
+	top:1px;
+}
+
+
+.myButton0 {
+	background-color:#FAEBD7;
+	border-radius:28px;
+	border:1px solid black;
+	display:inline-block;
+	cursor:pointer;
+	color:#505739;
+	font-family:Arial;
+	font-size:17px;
+	padding:6px 21px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton0:hover {
+	background:linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+	background-color:#ccc2a6;
+}
+.myButton0:active {
+	position:relative;
+	top:1px;
+}
+
+input[type=text] {
+  padding: 9px 17px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
+}
+
+input[type=text]:focus {
+  background-color: lightblue;
 }
