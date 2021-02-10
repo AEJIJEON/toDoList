@@ -1,5 +1,5 @@
 
-function handleClick(){
+function handleMouseEnter(){
   const CLICKED_CLASS = "clicked";
   clockTitle.classList.toggle(CLICKED_CLASS);
   // if (title.classList.contains(CLICKED_CLASS)){
@@ -17,7 +17,7 @@ function handleOffline(){
 }
 
 function init(){
-clockTitle.addEventListener("click", handleClick);
+clockTitle.addEventListener("mouseenter", handleMouseEnter);
 }
 init(); 
 
