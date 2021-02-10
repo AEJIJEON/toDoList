@@ -37,12 +37,19 @@ function deleteToDo(event){
     
 
     const btn = event.target;
+    console.log(btn);
     
-    const li = btn.parentNode;
-    
+    const label = btn.parentNode;
+    console.log(label);
+
+    const li = label.parentNode;
+    console.log(li);
+    console.log(label.children[1]);
+    console.log(label.childNodes[1]);
     // deliting checked todo list -> numOfcheckedToDos is decreased by 1
-    const checkB = li.childNodes[1];
-    const chkId = parseInt(li.id)
+    const checkB = label.childNodes[1];
+    
+    const chkId = parseInt(label.id)
 
     if (checkB.checked){
         numOfCheckedToDos -= 1
@@ -59,6 +66,7 @@ function deleteToDo(event){
     deletedToDoId.push(chkId);
     
     toDoList.removeChild(li);
+    console.log(toDos);
     const cleanToDos = toDos.filter(function(toDos){
         return toDos.id !== chkId;
     });
@@ -98,29 +106,45 @@ function handleCheckBox(event){
 function paintToDo(text, originalId){
 
     const li = document.createElement("li");
+
+    const label = document.createElement("label");
     const delBtn = document.createElement("button");
     // checkbox 추가
     const checkBox = document.createElement("INPUT");
+    const CheckMark = document.createElement("span");
+
+
+
+    CheckMark.classList.add("checkmark");
     checkBox.setAttribute("type", "checkbox");
+    
     checkBox.classList.add("addMargin");
 
     // listener 추가
     checkBox.addEventListener("change", handleCheckBox);
-
+    
     const span = document.createElement("span");
     let newId = 0
     delBtn.innerText = "delete";
     delBtn.addEventListener("click", deleteToDo);
     span.innerText = text;
-    li.appendChild(span);
-    li.appendChild(checkBox)
-    li.appendChild(delBtn);
-    toDoList.append(li);
+    span.classList.add("right-padding");
+
+    delBtn.classList.add("myButton1");
+
+    label.appendChild(span);
+    label.appendChild(checkBox);
+    label.appendChild(CheckMark);
+    label.appendChild(delBtn);
+
+    li.appendChild(label);
+
     toDoList.appendChild(li);
 
     // reload의 경우
     if (originalId !== -1){
-        li.id = originalId;
+        label.id = originalId;
+        
 
     }
     // 다순히 todo 추가하는 경우 -> li 에 new id 부여
@@ -132,7 +156,7 @@ function paintToDo(text, originalId){
             newId = deletedToDoId.shift();
         }
 
-        li.id = newId;
+        label.id = newId;
     
         const toDoObj = {
             text: text,
@@ -166,25 +190,29 @@ function handleSubmit(event){
 
 function loadToDos(){
     const loadToDos = localStorage.getItem(TODO_LS);
-   
+    
     const loadCheck = localStorage.getItem(CHECK_LS);
     
-    if (loadToDos !== null){
+    if (loadToDos !== null && loadToDos !== "[]"){
         const parsedToDos = JSON.parse(loadToDos);
-        
+        toDos = parsedToDos;
         numOfToDos = parsedToDos.length;
         parsedToDos.forEach(function(toDo){
             paintToDo(toDo.text, toDo.id);
         });
     }
-    if (loadCheck !== null){
+    if (loadCheck !== null && loadCheck !== "[]"){
         const parsedCheck = JSON.parse(loadCheck);
         
         
         numOfCheckedToDos = parsedCheck.length;
         parsedCheck.forEach(function(chkId){
             const chkIdNode = document.getElementById(chkId);
+
+
             const chkNode = chkIdNode.childNodes[1];
+
+
             chkNode.checked = true;
             checkedIds.push(chkId);
 
@@ -228,6 +256,7 @@ function init(){
     toDoForm.addEventListener("submit", handleSubmit);
     
     deleteAll.addEventListener("click", handleDeleteAll);
+    
 }
 
 init();
