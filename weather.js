@@ -31,7 +31,7 @@ function getWeather(lat, lng){
         }
         if (WEATHERIMGNUM !== 0){
             const icon = document.createElement("img");
-            icon.src = `images/weather_${WEATHERIMGNUM}.jpg`
+            icon.src = `images/weather_${WEATHERIMGNUM}.png`
             weather.parentNode.append(icon);
             icon.classList.add("weatherImage");
         }
