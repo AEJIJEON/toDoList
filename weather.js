@@ -7,7 +7,7 @@ let WEATHERIMGNUM = 0
 function getWeather(lat, lng){
 
     fetch(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric&lang=kr`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric&lang=kr`
     ).then(function(response){
         return response.json();
     }
