@@ -1,5 +1,6 @@
 ## ToDo List 
-![ToDoList gif](https://user-images.githubusercontent.com/59640337/107612691-219a9e80-6c8a-11eb-9a0d-1d6a477b2ba2.gif)
+![ToDoList gif](https://user-images.githubusercontent.com/59640337/107612691-219a9e80-6c8a-11eb-9a0d-1d6a477b2ba2.gif)  
+
 It is self-made toDo List using only vanilla js.
 This is a website where you can write down what to do today and see if you've achieved it.
 It was completed by designing and adding some functions to the toDo List created by taking the Nomad Coder lecture.
